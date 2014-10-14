@@ -19,40 +19,30 @@ class Room
     private $id;
     
     /**
-     * @var integer
-     *     
      * @ORM\Column(name="workerId", type="integer") 
      */
     private $workerId;
     
     /**
-     * @var integer
-     *     
      * @ORM\Column(name="standardId", type="integer") 
      */
     private $standardId;
     
-    
-    /**
-     * @var string
-     *     
+    /**    
      * @ORM\Column(name="availability", type="string", length=1) 
      */
     private $availability;
     
-    /**
-     * @var string
-     *     
+    /**    
      * @ORM\Column(name="nrOfBeds", type="string", length=1) 
      */
     private $nrOfBeds;
     
-    /**
-     * @var string
-     *     
+    /**    
      * @ORM\Column(name="faultInformation", type="string", length=200) 
      */
     private $faultInformation;
+    
     
     
 

@@ -12,61 +12,43 @@ use Doctrine\ORM\Mapping as ORM;
 class Booking 
 {
     /**
-    * @var integer
-    *
     * @ORM\Column(name="id", type="integer")
     * @ORM\GeneratedValue(strategy="AUTO")
     */
     private $id;
     
-    /**
-     * @var integer
-     *     
+    /**   
      * @ORM\Column(name="clientId", type="integer") 
      */
     private $clientId;
     
     /**
-     * @var integer
-     * 
      * @ORM\Column(name="roomNumber", type="integer") 
      */
     private $roomNumber;
     
     /**
-     * 
-     * @var datatime
-     * 
      * @ORM\Column(name="bookingDate", type="datetime")
-     * 
      */
     private $bookingDate;
     
     /**
-     * @var datetime
-     * 
      * @ORM\Column(name="$checkInDate", type="datetime")
      */
     private $checkInDate;
     
     /**
-     * @var datetime
-     * 
      * @ORM\Column(name="$checkOutDate", type="datetime")
      */
     private $checkOutDate;
     
      /**
-     * @var float
-     * 
      * @ORM\Column(name="price", type="float") 
      */
     private $price;
     
         
      /**
-     * @var string
-     * 
      * @ORM\Column(name="status", type="string") 
      */
     private $status;

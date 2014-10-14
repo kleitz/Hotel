@@ -20,58 +20,42 @@ class User extends BaseUser
     
     
     /**
-    * @var string
-    *
     * @ORM\Column(name="name", type="string", length=20)
     */
     private $name;
     
     
     /**
-    * @var string
-    *
     * @ORM\Column(name="surname", type="string", length=50)
     */
     private $surname;
     
     /**
-    * @var string
-    *
     * @ORM\Column(name="addressStreetName", type="string", length=30)
     */
     private $addressStreetName;
     
     /**
-    * @var string
-    *
     * @ORM\Column(name="addressHouseNumber", type="string", length=8)
     */
     private $addressHouseNumber;
     
     /**
-    * @var string
-    *
     * @ORM\Column(name="addressZipCode", type="string", length=5)
     */
     private $addressZipCode;
     
     /**
-    * @var integer
-    *
     * @ORM\Column(name="pesel", type="integer", length=11)
     */
     private $pesel;
     
     /**
-    * @var integer
-    *
     * @ORM\Column(name="telephoneNumber", type="integer", length=11)
     */
     private $telephoneNumber;
     
     /**
-    * @var integer
-    *
     * @ORM\Column(name="bankAccountNumber", type="integer", length=11)
     */
     private $bankAccountNumber;
