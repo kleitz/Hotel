@@ -11,9 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Room
 {
     /**
-    * @var integer
-    *
-    * @ORM\Column(name="id", type="integer")
+    * @ORM\Id
+    * @ORM\Column(type="integer")
     * @ORM\GeneratedValue(strategy="AUTO")
     */
     private $id;

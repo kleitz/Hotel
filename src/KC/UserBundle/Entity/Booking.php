@@ -3,6 +3,7 @@
 namespace KC\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use KC\UserBundle\Entity\Client;
 
 
 /**
@@ -12,7 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Booking 
 {
     /**
-    * @ORM\Column(name="id", type="integer")
+    * @ORM\Id
+    * @ORM\Column(type="integer")
     * @ORM\GeneratedValue(strategy="AUTO")
     */
     private $id;
@@ -52,6 +54,12 @@ class Booking
      * @ORM\Column(name="status", type="string") 
      */
     private $status;
+        
+
+    /**
+     * @ORM\OneToMany(targetEntity="Client", mappedBy="client")
+     */
+    private $client;
     
     
     
@@ -239,5 +247,45 @@ class Booking
     public function getStatus()
     {
         return $this->status;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->client = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add client
+     *
+     * @param \KC\UserBundle\Entity\Client $client
+     * @return Booking
+     */
+    public function addClient(\KC\UserBundle\Entity\Client $client)
+    {
+        $this->client[] = $client;
+
+        return $this;
+    }
+
+    /**
+     * Remove client
+     *
+     * @param \KC\UserBundle\Entity\Client $client
+     */
+    public function removeClient(\KC\UserBundle\Entity\Client $client)
+    {
+        $this->client->removeElement($client);
+    }
+
+    /**
+     * Get client
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getClient()
+    {
+        return $this->client;
     }
 }

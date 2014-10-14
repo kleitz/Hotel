@@ -2,14 +2,14 @@
 
 namespace KC\UserBundle\Entity;
 
-use KC\UserBundle\Entity\User as User;
+use KC\UserBundle\Entity\Client as Client;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fos_worker")
+ * @ORM\Table(name="worker")
  */
-class Worker extends User
+class Worker extends Client
 {
     /**
      * @ORM\Id

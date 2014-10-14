@@ -3,13 +3,14 @@
 namespace KC\UserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
+use KC\UserBundle\Entity\Booking;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fos_user")
+ * @ORM\Table(name="client")
  */
-class User extends BaseUser
+class Client extends BaseUser
 {
     /**
      * @ORM\Id
@@ -59,6 +60,12 @@ class User extends BaseUser
     * @ORM\Column(name="bankAccountNumber", type="integer", length=11)
     */
     private $bankAccountNumber;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Booking", inversedBy="client")
+     * @ORM\JoinColumn(name="booking_id", referencedColumnName="id")
+     */
+    private $booking;
     
     
     
@@ -261,5 +268,28 @@ class User extends BaseUser
     public function getBankAccountNumber()
     {
         return $this->bankAccountNumber;
+    }
+
+    /**
+     * Set booking
+     *
+     * @param \KC\UserBundle\Entity\Booking $booking
+     * @return Client
+     */
+    public function setBooking(\KC\UserBundle\Entity\Booking $booking = null)
+    {
+        $this->booking = $booking;
+
+        return $this;
+    }
+
+    /**
+     * Get booking
+     *
+     * @return \KC\UserBundle\Entity\Booking 
+     */
+    public function getBooking()
+    {
+        return $this->booking;
     }
 }

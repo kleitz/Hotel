@@ -10,6 +10,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class RoomList
 {
+    /**
+    * @ORM\Id
+    * @ORM\Column(type="integer")
+    * @ORM\GeneratedValue(strategy="AUTO")
+    */
+    private $id;
+    
     /**   
      * @ORM\Column(name="bookingId", type="integer") 
      */
