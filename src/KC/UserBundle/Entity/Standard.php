@@ -17,7 +17,7 @@ class Standard
     private $id;
     
     /**
-    * @ORM\Column(name="priceForBed", type="decimal", precision=14, scale=8)
+    * @ORM\Column(name="priceForBed", type="decimal", precision=14, scale=2)
     */
     private $priceForBed;
     
