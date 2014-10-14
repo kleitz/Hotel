@@ -17,10 +17,11 @@ class RoomList
     */
    protected $id;
     
-    /**   
-     * @ORM\Column(name="bookingId", type="integer") 
-     */
-    private $bookingId;
+    /**
+     * @ORM\ManyToMany(targetEntity="Booking", inversedBy="list")
+     * @ORM\JoinTable(name="roomlist_booking")
+     **/
+    private $booking;
     
      /**
      * @ORM\Column(name="roomNumber", type="integer") 
@@ -109,5 +110,45 @@ class RoomList
     public function getId()
     {
         return $this->id;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->booking = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add booking
+     *
+     * @param \KC\UserBundle\Entity\Booking $booking
+     * @return RoomList
+     */
+    public function addBooking(\KC\UserBundle\Entity\Booking $booking)
+    {
+        $this->booking[] = $booking;
+
+        return $this;
+    }
+
+    /**
+     * Remove booking
+     *
+     * @param \KC\UserBundle\Entity\Booking $booking
+     */
+    public function removeBooking(\KC\UserBundle\Entity\Booking $booking)
+    {
+        $this->booking->removeElement($booking);
+    }
+
+    /**
+     * Get booking
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBooking()
+    {
+        return $this->booking;
     }
 }

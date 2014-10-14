@@ -25,9 +25,9 @@ class Booking
     private $clientId;
     
     /**
-     * @ORM\Column(name="roomNumber", type="integer") 
+    * @ORM\ManyToMany(targetEntity="RoomList", mappedBy="booking")
      */
-    private $roomNumber;
+    private $list;
     
     /**
      * @ORM\Column(name="bookingDate", type="datetime")
@@ -287,5 +287,38 @@ class Booking
     public function getClient()
     {
         return $this->client;
+    }
+
+    /**
+     * Add list
+     *
+     * @param \KC\UserBundle\Entity\RoomList $list
+     * @return Booking
+     */
+    public function addList(\KC\UserBundle\Entity\RoomList $list)
+    {
+        $this->list[] = $list;
+
+        return $this;
+    }
+
+    /**
+     * Remove list
+     *
+     * @param \KC\UserBundle\Entity\RoomList $list
+     */
+    public function removeList(\KC\UserBundle\Entity\RoomList $list)
+    {
+        $this->list->removeElement($list);
+    }
+
+    /**
+     * Get list
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getList()
+    {
+        return $this->list;
     }
 }
