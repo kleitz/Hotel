@@ -29,7 +29,7 @@ class Worker extends User
     private $workplace;
     
     /**
-    * @ORM\Column(name="comments", type="string", length=50)
+    * @ORM\Column(name="comments", type="string", length=500)
     */
     private $comments;
     
