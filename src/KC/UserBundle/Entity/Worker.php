@@ -19,6 +19,11 @@ class Worker extends Client
     protected $id;
     
     /**
+     * @ORM\OneToMany(targetEntity="Room", mappedBy="worker")
+     */
+    protected $room;
+    
+    /**
     * @ORM\Column(name="salary", type="decimal", precision=14, scale=2)
     */
     private $salary;
@@ -140,5 +145,45 @@ class Worker extends Client
     public function getBooking()
     {
         return $this->booking;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->room = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add room
+     *
+     * @param \KC\UserBundle\Entity\Room $room
+     * @return Worker
+     */
+    public function addRoom(\KC\UserBundle\Entity\Room $room)
+    {
+        $this->room[] = $room;
+
+        return $this;
+    }
+
+    /**
+     * Remove room
+     *
+     * @param \KC\UserBundle\Entity\Room $room
+     */
+    public function removeRoom(\KC\UserBundle\Entity\Room $room)
+    {
+        $this->room->removeElement($room);
+    }
+
+    /**
+     * Get room
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRoom()
+    {
+        return $this->room;
     }
 }

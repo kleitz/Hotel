@@ -28,6 +28,12 @@ class Room
      */
     private $standard;
     
+    /**
+     * @ORM\ManyToOne(targetEntity="Worker", inversedBy="room")
+     * @ORM\JoinColumn(name="worker_id", referencedColumnName="id")
+     */
+    private $worker;
+    
     /**    
      * @ORM\Column(name="availability", type="string", length=1) 
      */
@@ -235,5 +241,28 @@ class Room
         $this->standard = $standard;
 
         return $this;
+    }
+
+    /**
+     * Set worker
+     *
+     * @param \KC\UserBundle\Entity\Worker $worker
+     * @return Room
+     */
+    public function setWorker(\KC\UserBundle\Entity\Worker $worker = null)
+    {
+        $this->worker = $worker;
+
+        return $this;
+    }
+
+    /**
+     * Get worker
+     *
+     * @return \KC\UserBundle\Entity\Worker 
+     */
+    public function getWorker()
+    {
+        return $this->worker;
     }
 }

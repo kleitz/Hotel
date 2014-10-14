@@ -18,8 +18,7 @@ class Standard
    protected $id;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Room", inversedBy="standard")
-     * @ORM\JoinColumn(name="room_id", referencedColumnName="id")
+     * @ORM\OneToMany(targetEntity="Room", mappedBy="standard")
      */
     protected $room;
     
@@ -150,5 +149,35 @@ class Standard
     public function getRoom()
     {
         return $this->room;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->room = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add room
+     *
+     * @param \KC\UserBundle\Entity\Room $room
+     * @return Standard
+     */
+    public function addRoom(\KC\UserBundle\Entity\Room $room)
+    {
+        $this->room[] = $room;
+
+        return $this;
+    }
+
+    /**
+     * Remove room
+     *
+     * @param \KC\UserBundle\Entity\Room $room
+     */
+    public function removeRoom(\KC\UserBundle\Entity\Room $room)
+    {
+        $this->room->removeElement($room);
     }
 }
