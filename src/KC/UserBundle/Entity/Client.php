@@ -19,12 +19,16 @@ class Client extends BaseUser
      */
     protected $id;
     
+    /**
+     * @ORM\ManyToOne(targetEntity="Booking", inversedBy="client")
+     * @ORM\JoinColumn(name="booking_id", referencedColumnName="id")
+     */
+    private $booking;
     
     /**
     * @ORM\Column(name="name", type="string", length=20)
     */
     private $name;
-    
     
     /**
     * @ORM\Column(name="surname", type="string", length=50)
@@ -60,14 +64,7 @@ class Client extends BaseUser
     * @ORM\Column(name="bankAccountNumber", type="integer", length=11)
     */
     private $bankAccountNumber;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="Booking", inversedBy="client")
-     * @ORM\JoinColumn(name="booking_id", referencedColumnName="id")
-     */
-    private $booking;
-    
-    
+  
     
 
     public function __construct()

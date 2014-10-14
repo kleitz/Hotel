@@ -15,7 +15,7 @@ class RoomList
     * @ORM\Column(type="integer")
     * @ORM\GeneratedValue(strategy="AUTO")
     */
-    private $id;
+   protected $id;
     
     /**   
      * @ORM\Column(name="bookingId", type="integer") 
@@ -99,5 +99,15 @@ class RoomList
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

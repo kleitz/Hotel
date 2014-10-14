@@ -113,4 +113,32 @@ class Worker extends Client
     {
         return $this->comments;
     }
+    /**
+     * @var \KC\UserBundle\Entity\Booking
+     */
+    private $booking;
+
+
+    /**
+     * Set booking
+     *
+     * @param \KC\UserBundle\Entity\Booking $booking
+     * @return Worker
+     */
+    public function setBooking(\KC\UserBundle\Entity\Booking $booking = null)
+    {
+        $this->booking = $booking;
+
+        return $this;
+    }
+
+    /**
+     * Get booking
+     *
+     * @return \KC\UserBundle\Entity\Booking 
+     */
+    public function getBooking()
+    {
+        return $this->booking;
+    }
 }

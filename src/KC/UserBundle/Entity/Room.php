@@ -23,9 +23,10 @@ class Room
     private $workerId;
     
     /**
-     * @ORM\Column(name="standardId", type="integer") 
+     * @ORM\ManyToOne(targetEntity="Standard", inversedBy="room")
+     * @ORM\JoinColumn(name="standard_id", referencedColumnName="id")
      */
-    private $standardId;
+    private $standard;
     
     /**    
      * @ORM\Column(name="availability", type="string", length=1) 
@@ -181,5 +182,58 @@ class Room
     public function getFaultInformation()
     {
         return $this->faultInformation;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->standard = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add standard
+     *
+     * @param \KC\UserBundle\Entity\Standard $standard
+     * @return Room
+     */
+    public function addStandard(\KC\UserBundle\Entity\Standard $standard)
+    {
+        $this->standard[] = $standard;
+
+        return $this;
+    }
+
+    /**
+     * Remove standard
+     *
+     * @param \KC\UserBundle\Entity\Standard $standard
+     */
+    public function removeStandard(\KC\UserBundle\Entity\Standard $standard)
+    {
+        $this->standard->removeElement($standard);
+    }
+
+    /**
+     * Get standard
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getStandard()
+    {
+        return $this->standard;
+    }
+
+    /**
+     * Set standard
+     *
+     * @param \KC\UserBundle\Entity\Standard $standard
+     * @return Room
+     */
+    public function setStandard(\KC\UserBundle\Entity\Standard $standard = null)
+    {
+        $this->standard = $standard;
+
+        return $this;
     }
 }

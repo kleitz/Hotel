@@ -15,7 +15,13 @@ class Standard
     * @ORM\Column(type="integer")
     * @ORM\GeneratedValue(strategy="AUTO")
     */
-    private $id;
+   protected $id;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Room", inversedBy="standard")
+     * @ORM\JoinColumn(name="room_id", referencedColumnName="id")
+     */
+    protected $room;
     
     /**
     * @ORM\Column(name="priceForBed", type="decimal", precision=14, scale=2)
@@ -121,5 +127,28 @@ class Standard
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set room
+     *
+     * @param \KC\UserBundle\Entity\Room $room
+     * @return Standard
+     */
+    public function setRoom(\KC\UserBundle\Entity\Room $room = null)
+    {
+        $this->room = $room;
+
+        return $this;
+    }
+
+    /**
+     * Get room
+     *
+     * @return \KC\UserBundle\Entity\Room 
+     */
+    public function getRoom()
+    {
+        return $this->room;
     }
 }

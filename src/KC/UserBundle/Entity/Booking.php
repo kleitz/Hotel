@@ -17,7 +17,7 @@ class Booking
     * @ORM\Column(type="integer")
     * @ORM\GeneratedValue(strategy="AUTO")
     */
-    private $id;
+   protected $id;
     
     /**   
      * @ORM\Column(name="clientId", type="integer") 
