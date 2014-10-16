@@ -73,4 +73,6 @@ fos_user:
     registration:
         form:
             type: client_registration
+        confirmation:
+            enabled:    true
 

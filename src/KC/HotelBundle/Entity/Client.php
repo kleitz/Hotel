@@ -304,10 +304,10 @@ class Client extends BaseUser
     /**
      * Set addressApartmentNumber
      *
-     * @param \int $addressApartmentNumber
+     * @param \integer $addressApartmentNumber
      * @return Client
      */
-    public function setAddressApartmentNumber(\int $addressApartmentNumber)
+    public function setAddressApartmentNumber($addressApartmentNumber)
     {
         $this->addressApartmentNumber = $addressApartmentNumber;
 
@@ -317,7 +317,7 @@ class Client extends BaseUser
     /**
      * Get addressApartmentNumber
      *
-     * @return \int 
+     * @return \integer 
      */
     public function getAddressApartmentNumber()
     {
