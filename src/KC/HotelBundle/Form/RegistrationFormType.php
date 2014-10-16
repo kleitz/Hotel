@@ -1,6 +1,6 @@
 <?php
 
-namespace KC\HotelBundle\Form\Type;
+namespace KC\HotelBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;

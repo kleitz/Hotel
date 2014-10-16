@@ -1,0 +1,5 @@
+services:
+    client.registration.form.type:
+        class: KC\HotelBundle\Form\RegistrationFormType
+        tags:
+            - { name: form.type, alias: client_registration }
