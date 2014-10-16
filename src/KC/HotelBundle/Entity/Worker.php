@@ -1,8 +1,8 @@
 <?php
 
-namespace KC\UserBundle\Entity;
+namespace KC\HotelBundle\Entity;
 
-use KC\UserBundle\Entity\Client as Client;
+use KC\HotelBundle\Entity\Client as Client;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,23 +21,22 @@ class Worker extends Client
     /**
      * @ORM\OneToMany(targetEntity="Room", mappedBy="worker")
      */
-    protected $room;
+    private $room;
     
     /**
     * @ORM\Column(name="salary", type="decimal", precision=14, scale=2)
     */
-    private $salary;
+    protected $salary;
     
     /**
     * @ORM\Column(name="workplace", type="string", length=50)
     */
-    private $workplace;
+    protected $workplace;
     
     /**
     * @ORM\Column(name="comments", type="string", length=500)
     */
-    private $comments;
-    
+    protected $comments;
     
 
     /**
@@ -119,7 +118,7 @@ class Worker extends Client
         return $this->comments;
     }
     /**
-     * @var \KC\UserBundle\Entity\Booking
+     * @var \KC\HotelBundle\Entity\Booking
      */
     private $booking;
 
@@ -127,7 +126,7 @@ class Worker extends Client
     /**
      * Set booking
      *
-     * @param \KC\UserBundle\Entity\Booking $booking
+     * @param \KC\HotelBundle\Entity\Booking $booking
      * @return Worker
      */
     public function setBooking(\KC\UserBundle\Entity\Booking $booking = null)
@@ -140,7 +139,7 @@ class Worker extends Client
     /**
      * Get booking
      *
-     * @return \KC\UserBundle\Entity\Booking 
+     * @return \KC\HotelBundle\Entity\Booking 
      */
     public function getBooking()
     {
@@ -157,7 +156,7 @@ class Worker extends Client
     /**
      * Add room
      *
-     * @param \KC\UserBundle\Entity\Room $room
+     * @param \KC\HotelBundle\Entity\Room $room
      * @return Worker
      */
     public function addRoom(\KC\UserBundle\Entity\Room $room)
@@ -170,7 +169,7 @@ class Worker extends Client
     /**
      * Remove room
      *
-     * @param \KC\UserBundle\Entity\Room $room
+     * @param \KC\HotelBundle\Entity\Room $room
      */
     public function removeRoom(\KC\UserBundle\Entity\Room $room)
     {
@@ -186,4 +185,50 @@ class Worker extends Client
     {
         return $this->room;
     }
+    /**
+     * @var string
+     */
+    private $name;
+
+    /**
+     * @var string
+     */
+    private $surname;
+
+    /**
+     * @var string
+     */
+    private $addressStreetName;
+
+    /**
+     * @var string
+     */
+    private $addressHouseNumber;
+
+    /**
+     * @var int
+     */
+    private $addressApartmentNumber;
+
+    /**
+     * @var string
+     */
+    private $addressZipCode;
+
+    /**
+     * @var integer
+     */
+    private $pesel;
+
+    /**
+     * @var integer
+     */
+    private $telephoneNumber;
+
+    /**
+     * @var integer
+     */
+    private $bankAccountNumber;
+
+
 }

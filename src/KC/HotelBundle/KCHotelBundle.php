@@ -1,10 +1,10 @@
 <?php
 
-namespace KC\UserBundle;
+namespace KC\HotelBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class KCUserBundle extends Bundle
+class KCHotelBundle extends Bundle
 {
         public function getParent()
     {

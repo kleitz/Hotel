@@ -1,9 +1,8 @@
 # app/config/routing.yml
 kc_user:
-    resource: "@KCUserBundle/Controller/"
+    resource: "@KCHotelBundle/Controller/"
     type:     annotation
     prefix:   /
-
-
+    
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

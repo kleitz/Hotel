@@ -1,6 +1,6 @@
 <?php
 
-namespace KC\UserBundle\Controller;
+namespace KC\HotelBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;

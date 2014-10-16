@@ -1,6 +1,6 @@
 <?php
 
-namespace KC\UserBundle\Entity;
+namespace KC\HotelBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -131,7 +131,7 @@ class Standard
     /**
      * Set room
      *
-     * @param \KC\UserBundle\Entity\Room $room
+     * @param \KC\HotelBundle\Entity\Room $room
      * @return Standard
      */
     public function setRoom(\KC\UserBundle\Entity\Room $room = null)
@@ -144,7 +144,7 @@ class Standard
     /**
      * Get room
      *
-     * @return \KC\UserBundle\Entity\Room 
+     * @return \KC\HotelBundle\Entity\Room 
      */
     public function getRoom()
     {
@@ -161,7 +161,7 @@ class Standard
     /**
      * Add room
      *
-     * @param \KC\UserBundle\Entity\Room $room
+     * @param \KC\HotelBundle\Entity\Room $room
      * @return Standard
      */
     public function addRoom(\KC\UserBundle\Entity\Room $room)
@@ -174,7 +174,7 @@ class Standard
     /**
      * Remove room
      *
-     * @param \KC\UserBundle\Entity\Room $room
+     * @param \KC\HotelBundle\Entity\Room $room
      */
     public function removeRoom(\KC\UserBundle\Entity\Room $room)
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace KC\UserBundle\Entity;
+namespace KC\HotelBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -23,6 +23,12 @@ class RoomList
      **/
     private $booking;
     
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Room", inversedBy="roomlist")
+     * @ORM\JoinColumn(name="room_id", referencedColumnName="id")
+     */
+    private $room;
      /**
      * @ORM\Column(name="roomNumber", type="integer") 
      */
@@ -122,7 +128,7 @@ class RoomList
     /**
      * Add booking
      *
-     * @param \KC\UserBundle\Entity\Booking $booking
+     * @param \KC\HotelBundle\Entity\Booking $booking
      * @return RoomList
      */
     public function addBooking(\KC\UserBundle\Entity\Booking $booking)
@@ -135,7 +141,7 @@ class RoomList
     /**
      * Remove booking
      *
-     * @param \KC\UserBundle\Entity\Booking $booking
+     * @param \KC\HotelBundle\Entity\Booking $booking
      */
     public function removeBooking(\KC\UserBundle\Entity\Booking $booking)
     {

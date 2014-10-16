@@ -1,9 +1,8 @@
 <?php
 
-namespace KC\UserBundle\Entity;
+namespace KC\HotelBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use KC\UserBundle\Entity\Client;
 
 
 /**
@@ -259,7 +258,7 @@ class Booking
     /**
      * Add client
      *
-     * @param \KC\UserBundle\Entity\Client $client
+     * @param \KC\HotelBundle\Entity\Client $client
      * @return Booking
      */
     public function addClient(\KC\UserBundle\Entity\Client $client)
@@ -272,7 +271,7 @@ class Booking
     /**
      * Remove client
      *
-     * @param \KC\UserBundle\Entity\Client $client
+     * @param \KC\HotelBundle\Entity\Client $client
      */
     public function removeClient(\KC\UserBundle\Entity\Client $client)
     {
@@ -292,7 +291,7 @@ class Booking
     /**
      * Add list
      *
-     * @param \KC\UserBundle\Entity\RoomList $list
+     * @param \KC\HotelBundle\Entity\RoomList $list
      * @return Booking
      */
     public function addList(\KC\UserBundle\Entity\RoomList $list)
@@ -305,7 +304,7 @@ class Booking
     /**
      * Remove list
      *
-     * @param \KC\UserBundle\Entity\RoomList $list
+     * @param \KC\HotelBundle\Entity\RoomList $list
      */
     public function removeList(\KC\UserBundle\Entity\RoomList $list)
     {

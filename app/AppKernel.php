@@ -19,7 +19,7 @@ class AppKernel extends Kernel
                         
             new FOS\UserBundle\FOSUserBundle(),
             
-            new KC\UserBundle\KCUserBundle(),
+            new KC\HotelBundle\KCHotelBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

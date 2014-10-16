@@ -1,10 +1,10 @@
 <?php
 
-namespace KC\UserBundle\Entity;
+namespace KC\HotelBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
-use KC\UserBundle\Entity\Booking;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -27,43 +27,54 @@ class Client extends BaseUser
     
     /**
     * @ORM\Column(name="name", type="string", length=20)
+    * @Assert\NotBlank(message="Please enter your name.")
+    * @Assert\Length(
+    *     min=3,
+    *     max="255",
+    *     minMessage="The name is too short.",
+    *     maxMessage="The name is too long.")
     */
-    private $name;
+    protected $name;
     
     /**
     * @ORM\Column(name="surname", type="string", length=50)
     */
-    private $surname;
+    protected $surname;
     
     /**
     * @ORM\Column(name="addressStreetName", type="string", length=30)
     */
-    private $addressStreetName;
+    protected $addressStreetName;
     
     /**
     * @ORM\Column(name="addressHouseNumber", type="string", length=8)
     */
-    private $addressHouseNumber;
+    protected $addressHouseNumber;
+    
+    /**
+    * @ORM\Column(name="addressApartmentNumber", type="int", nullable=true)
+    */
+    protected $addressApartmentNumber;
     
     /**
     * @ORM\Column(name="addressZipCode", type="string", length=5)
     */
-    private $addressZipCode;
+    protected $addressZipCode;
     
     /**
     * @ORM\Column(name="pesel", type="integer", length=11)
     */
-    private $pesel;
+    protected $pesel;
     
     /**
     * @ORM\Column(name="telephoneNumber", type="integer", length=11)
     */
-    private $telephoneNumber;
+    protected $telephoneNumber;
     
     /**
     * @ORM\Column(name="bankAccountNumber", type="integer", length=11)
     */
-    private $bankAccountNumber;
+    protected $bankAccountNumber;
   
     
 
@@ -270,7 +281,7 @@ class Client extends BaseUser
     /**
      * Set booking
      *
-     * @param \KC\UserBundle\Entity\Booking $booking
+     * @param \KC\HotelBundle\Entity\Booking $booking
      * @return Client
      */
     public function setBooking(\KC\UserBundle\Entity\Booking $booking = null)
@@ -283,10 +294,33 @@ class Client extends BaseUser
     /**
      * Get booking
      *
-     * @return \KC\UserBundle\Entity\Booking 
+     * @return \KC\HotelBundle\Entity\Booking 
      */
     public function getBooking()
     {
         return $this->booking;
+    }
+
+    /**
+     * Set addressApartmentNumber
+     *
+     * @param \int $addressApartmentNumber
+     * @return Client
+     */
+    public function setAddressApartmentNumber(\int $addressApartmentNumber)
+    {
+        $this->addressApartmentNumber = $addressApartmentNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get addressApartmentNumber
+     *
+     * @return \int 
+     */
+    public function getAddressApartmentNumber()
+    {
+        return $this->addressApartmentNumber;
     }
 }

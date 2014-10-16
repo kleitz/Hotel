@@ -1,6 +1,6 @@
 <?php
 
-namespace KC\UserBundle\Entity;
+namespace KC\HotelBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -16,6 +16,12 @@ class Room
     * @ORM\GeneratedValue(strategy="AUTO")
     */
     private $id;
+    
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="RoomList", mappedBy="room")
+     */
+    private $roomlist;
     
     /**
      * @ORM\Column(name="workerId", type="integer") 
@@ -200,7 +206,7 @@ class Room
     /**
      * Add standard
      *
-     * @param \KC\UserBundle\Entity\Standard $standard
+     * @param \KC\HotelBundle\Entity\Standard $standard
      * @return Room
      */
     public function addStandard(\KC\UserBundle\Entity\Standard $standard)
@@ -213,7 +219,7 @@ class Room
     /**
      * Remove standard
      *
-     * @param \KC\UserBundle\Entity\Standard $standard
+     * @param \KC\HotelBundle\Entity\Standard $standard
      */
     public function removeStandard(\KC\UserBundle\Entity\Standard $standard)
     {
@@ -233,7 +239,7 @@ class Room
     /**
      * Set standard
      *
-     * @param \KC\UserBundle\Entity\Standard $standard
+     * @param \KC\HotelBundle\Entity\Standard $standard
      * @return Room
      */
     public function setStandard(\KC\UserBundle\Entity\Standard $standard = null)
@@ -246,7 +252,7 @@ class Room
     /**
      * Set worker
      *
-     * @param \KC\UserBundle\Entity\Worker $worker
+     * @param \KC\HotelBundle\Entity\Worker $worker
      * @return Room
      */
     public function setWorker(\KC\UserBundle\Entity\Worker $worker = null)
@@ -259,7 +265,7 @@ class Room
     /**
      * Get worker
      *
-     * @return \KC\UserBundle\Entity\Worker 
+     * @return \KC\HotelBundle\Entity\Worker 
      */
     public function getWorker()
     {
