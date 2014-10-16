@@ -52,7 +52,7 @@ class Client extends BaseUser
     protected $addressHouseNumber;
     
     /**
-    * @ORM\Column(name="addressApartmentNumber", type="int", nullable=true)
+    * @ORM\Column(name="addressApartmentNumber", type="integer", nullable=true)
     */
     protected $addressApartmentNumber;
     

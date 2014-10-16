@@ -157,4 +157,27 @@ class RoomList
     {
         return $this->booking;
     }
+
+    /**
+     * Set room
+     *
+     * @param \KC\HotelBundle\Entity\Room $room
+     * @return RoomList
+     */
+    public function setRoom(\KC\HotelBundle\Entity\Room $room = null)
+    {
+        $this->room = $room;
+
+        return $this;
+    }
+
+    /**
+     * Get room
+     *
+     * @return \KC\HotelBundle\Entity\Room 
+     */
+    public function getRoom()
+    {
+        return $this->room;
+    }
 }

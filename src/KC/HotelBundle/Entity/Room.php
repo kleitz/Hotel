@@ -271,4 +271,37 @@ class Room
     {
         return $this->worker;
     }
+
+    /**
+     * Add roomlist
+     *
+     * @param \KC\HotelBundle\Entity\RoomList $roomlist
+     * @return Room
+     */
+    public function addRoomlist(\KC\HotelBundle\Entity\RoomList $roomlist)
+    {
+        $this->roomlist[] = $roomlist;
+
+        return $this;
+    }
+
+    /**
+     * Remove roomlist
+     *
+     * @param \KC\HotelBundle\Entity\RoomList $roomlist
+     */
+    public function removeRoomlist(\KC\HotelBundle\Entity\RoomList $roomlist)
+    {
+        $this->roomlist->removeElement($roomlist);
+    }
+
+    /**
+     * Get roomlist
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRoomlist()
+    {
+        return $this->roomlist;
+    }
 }
