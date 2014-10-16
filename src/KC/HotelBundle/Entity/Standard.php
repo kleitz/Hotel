@@ -23,6 +23,11 @@ class Standard
     protected $room;
     
     /**
+     * @ORM\Column(name="standardName", type="string", length=20)
+     */
+    private $standardName;
+
+    /**
     * @ORM\Column(name="priceForBed", type="decimal", precision=14, scale=2)
     */
     private $priceForBed;
@@ -179,5 +184,28 @@ class Standard
     public function removeRoom(\KC\UserBundle\Entity\Room $room)
     {
         $this->room->removeElement($room);
+    }
+
+    /**
+     * Set standardName
+     *
+     * @param string $standardName
+     * @return Standard
+     */
+    public function setStandardName($standardName)
+    {
+        $this->standardName = $standardName;
+
+        return $this;
+    }
+
+    /**
+     * Get standardName
+     *
+     * @return string 
+     */
+    public function getStandardName()
+    {
+        return $this->standardName;
     }
 }

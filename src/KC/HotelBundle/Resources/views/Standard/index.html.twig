@@ -1,0 +1,41 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Lista Standardów Hotelu</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Standardname</th>
+                <th>Priceforbed</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('admin_standard_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.standardName }}</td>
+                <td>{{ entity.priceForBed }}</td>
+                <td>{{ entity.description }}</td>
+                <td>
+                <ul>
+                    <a class="tiny button" href="{{ path('admin_standard_show', { 'id': entity.id }) }}">Pokaż</a>
+                    <a class="tiny button" href="{{ path('admin_standard_edit', { 'id': entity.id }) }}">Edytuj</a>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+
+            <a class="button" href="{{ path('admin_standard_new') }}">
+                Nowy Standard
+            </a>
+
+    </ul>
+    {% endblock %}
