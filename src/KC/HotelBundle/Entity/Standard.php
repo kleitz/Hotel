@@ -39,7 +39,10 @@ class Standard
     
     
     
-    
+    public function __toString()
+    {
+        return $this->getStandardName();
+    }
 
     /**
      * Set id
@@ -139,7 +142,7 @@ class Standard
      * @param \KC\HotelBundle\Entity\Room $room
      * @return Standard
      */
-    public function setRoom(\KC\UserBundle\Entity\Room $room = null)
+    public function setRoom(\KC\HotelBundle\Entity\Room $room = null)
     {
         $this->room = $room;
 
@@ -169,7 +172,7 @@ class Standard
      * @param \KC\HotelBundle\Entity\Room $room
      * @return Standard
      */
-    public function addRoom(\KC\UserBundle\Entity\Room $room)
+    public function addRoom(\KC\HotelBundle\Entity\Room $room)
     {
         $this->room[] = $room;
 
@@ -181,7 +184,7 @@ class Standard
      *
      * @param \KC\HotelBundle\Entity\Room $room
      */
-    public function removeRoom(\KC\UserBundle\Entity\Room $room)
+    public function removeRoom(\KC\HotelBundle\Entity\Room $room)
     {
         $this->room->removeElement($room);
     }

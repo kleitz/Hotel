@@ -22,12 +22,13 @@
             <section class="top-bar-section"> 
                 <!-- Right Nav Section --> 
                 <ul class="right"> 
-                    <li class="active"><a href="#">Right Button Active</a></li> 
+                            <li class="active"><a href="{{ path('admin_standard')}}">Standard</a></li> 
+                            <li class="active"><a href="{{ path('admin_room')}}">Pokoje</a></li> 
                     <li class="has-dropdown"> 
-                        <a href="#">Right Button Dropdown</a> 
+                        <a href="#">Logowalne bajery</a> 
                         <ul class="dropdown"> 
-                            <li><a href="#">First link in dropdown</a></li> 
-                            <li class="active"><a href="#">Active link in dropdown</a></li> 
+                            <li><a href="/login">Logowanie</a></li> 
+                            <li><a href="/register">Rejestracja</a></li>
                         </ul> 
                     </li> 
                 </ul> 
@@ -38,7 +39,16 @@
                 </ul> 
             </section> 
         </nav>
-        {% block body %}{% endblock %}
+                    
+                    
+                    
+    <div id="page">
+        <div class="fullWrapper">                   
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+        
+        
         {% block javascripts %}
             {# Foundation #}
             <script src="{{ asset('js/vendor/jquery.js') }}"></script>

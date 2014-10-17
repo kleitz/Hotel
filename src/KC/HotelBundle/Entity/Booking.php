@@ -18,6 +18,14 @@ class Booking
     */
    protected $id;
     
+   
+   
+    /**
+     * @ORM\ManyToOne(targetEntity="Client", inversedBy="booking")
+     * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
+     */
+     private $client;
+   
     /**   
      * @ORM\Column(name="clientId", type="integer") 
      */
@@ -53,16 +61,7 @@ class Booking
      * @ORM\Column(name="status", type="string") 
      */
     private $status;
-        
-
-    /**
-     * @ORM\OneToMany(targetEntity="Client", mappedBy="client")
-     */
-    private $client;
-    
-    
-    
-    
+            
 
     /**
      * Set id

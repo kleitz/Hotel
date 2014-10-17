@@ -1,0 +1,11 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Tworzenie nowego pokoju</h1>
+
+    {{ form(form) }}
+   
+        <a class="button" href="{{ path('admin_room') }}">
+           Powrót do listy
+        </a>
+{% endblock %}

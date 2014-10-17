@@ -20,8 +20,7 @@ class Client extends BaseUser
     protected $id;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Booking", inversedBy="client")
-     * @ORM\JoinColumn(name="booking_id", referencedColumnName="id")
+     * @ORM\OneToMany(targetEntity="Booking", mappedBy="client")
      */
     private $booking;
     

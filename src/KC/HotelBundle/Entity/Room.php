@@ -23,10 +23,6 @@ class Room
      */
     private $roomlist;
     
-    /**
-     * @ORM\Column(name="workerId", type="integer") 
-     */
-    private $workerId;
     
     /**
      * @ORM\ManyToOne(targetEntity="Standard", inversedBy="room")
@@ -81,28 +77,6 @@ class Room
         return $this->id;
     }
 
-    /**
-     * Set workerId
-     *
-     * @param integer $workerId
-     * @return Room
-     */
-    public function setWorkerId($workerId)
-    {
-        $this->workerId = $workerId;
-
-        return $this;
-    }
-
-    /**
-     * Get workerId
-     *
-     * @return integer 
-     */
-    public function getWorkerId()
-    {
-        return $this->workerId;
-    }
 
     /**
      * Set standardId
@@ -209,7 +183,7 @@ class Room
      * @param \KC\HotelBundle\Entity\Standard $standard
      * @return Room
      */
-    public function addStandard(\KC\UserBundle\Entity\Standard $standard)
+    public function addStandard(\KC\HotelBundle\Entity\Standard $standard)
     {
         $this->standard[] = $standard;
 
@@ -221,7 +195,7 @@ class Room
      *
      * @param \KC\HotelBundle\Entity\Standard $standard
      */
-    public function removeStandard(\KC\UserBundle\Entity\Standard $standard)
+    public function removeStandard(\KC\HotelBundle\Entity\Standard $standard)
     {
         $this->standard->removeElement($standard);
     }
@@ -242,7 +216,7 @@ class Room
      * @param \KC\HotelBundle\Entity\Standard $standard
      * @return Room
      */
-    public function setStandard(\KC\UserBundle\Entity\Standard $standard = null)
+    public function setStandard(\KC\HotelBundle\Entity\Standard $standard = null)
     {
         $this->standard = $standard;
 
@@ -255,7 +229,7 @@ class Room
      * @param \KC\HotelBundle\Entity\Worker $worker
      * @return Room
      */
-    public function setWorker(\KC\UserBundle\Entity\Worker $worker = null)
+    public function setWorker(\KC\HotelBundle\Entity\Worker $worker = null)
     {
         $this->worker = $worker;
 

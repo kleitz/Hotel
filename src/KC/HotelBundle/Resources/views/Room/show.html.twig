@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Pokój</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Workerid</th>
+                <td>{{ entity.workerId }}</td>
+            </tr>
+            <tr>
+                <th>Availability</th>
+                <td>{{ entity.availability }}</td>
+            </tr>
+            <tr>
+                <th>Nrofbeds</th>
+                <td>{{ entity.nrOfBeds }}</td>
+            </tr>
+            <tr>
+                <th>Faultinformation</th>
+                <td>{{ entity.faultInformation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a class="button" href="{{ path('admin_room') }}">
+            Powrót do listy
+        </a>
+    </li>
+    <li>
+        <a class="button" href="{{ path('admin_room_edit', { 'id': entity.id }) }}">
+            Edycja
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}
