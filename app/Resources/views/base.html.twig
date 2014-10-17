@@ -9,39 +9,9 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {# Foundation Top Bar #}
-        <nav class="top-bar" data-topbar role="navigation"> 
-            <ul class="title-area"> 
-                <li class="name"> 
-                    <h1><a href="#">Hotel Menagement</a></h1> 
-                </li> 
-                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone --> 
-                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li> 
-            </ul> 
-            
-            <section class="top-bar-section"> 
-                <!-- Right Nav Section --> 
-                <ul class="right"> 
-                            <li class="active"><a href="{{ path('admin_standard')}}">Standard</a></li> 
-                            <li class="active"><a href="{{ path('admin_room')}}">Pokoje</a></li> 
-                    <li class="has-dropdown"> 
-                        <a href="#">Logowalne bajery</a> 
-                        <ul class="dropdown"> 
-                            <li><a href="/login">Logowanie</a></li> 
-                            <li><a href="/register">Rejestracja</a></li>
-                        </ul> 
-                    </li> 
-                </ul> 
-                
-                <!-- Left Nav Section --> 
-                <ul class="left"> 
-                    <li><a href="#">Left Nav Button</a></li> 
-                </ul> 
-            </section> 
-        </nav>
-                    
-                    
-                    
+        
+        {% block topbar %} {% endblock %}
+        
     <div id="page">
         <div class="fullWrapper">                   
             {% block body %}{% endblock %}
