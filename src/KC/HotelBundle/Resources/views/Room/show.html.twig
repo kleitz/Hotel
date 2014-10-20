@@ -10,27 +10,25 @@
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Nrofbeds</th>
+                <th>Ilość łóżek</th>
                 <td>{{ entity.nrOfBeds }}</td>
             </tr>
             <tr>
-                <th>Faultinformation</th>
+                <th>Informacje o usterkach</th>
                 <td>{{ entity.faultInformation }}</td>
             </tr>
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
+
         <a class="button" href="{{ path('admin_room') }}">
             Powrót do listy
         </a>
-    </li>
-    <li>
+
         <a class="button" href="{{ path('admin_room_edit', { 'id': entity.id }) }}">
             Edycja
         </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+
+{{ form(delete_form) }}
+
 {% endblock %}

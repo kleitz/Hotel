@@ -1,15 +1,12 @@
 {% extends '::admin_base.html.twig' %}
 
 {% block body -%}
-    <h1>Standard creation</h1>
+    <h1>Tworzenie nowego standardu</h1>
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_standard') }}">
-            Back to the list
+        <a class="button" href="{{ path('admin_standard') }}">
+            Powrót do listy
         </a>
-    </li>
-</ul>
+
 {% endblock %}

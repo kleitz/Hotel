@@ -8,15 +8,18 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class WorkerType extends AbstractType
 {
-
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('surname')
             ->add('salary')
             ->add('workplace')
             ->add('comments')
+            ->add('name')
+            ->add('surname')
             ->add('addressStreetName')
             ->add('addressHouseNumber')
             ->add('addressApartmentNumber')
@@ -32,7 +35,6 @@ class WorkerType extends AbstractType
         return 'fos_user_registration';
     }
     
-    
     /**
      * @param OptionsResolverInterface $resolver
      */
@@ -42,6 +44,7 @@ class WorkerType extends AbstractType
             'data_class' => 'KC\HotelBundle\Entity\Worker'
         ));
     }
+
     /**
      * @return string
      */
