@@ -2,14 +2,14 @@
 
 namespace KC\HotelBundle\Entity;
 
-use KC\HotelBundle\Entity\Client as Client;
+use KC\HotelBundle\Entity\User as User;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="worker")
  */
-class Worker extends Client
+class Worker extends User
 {
     /**
      * @ORM\Id
@@ -17,11 +17,6 @@ class Worker extends Client
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="Room", mappedBy="worker")
-     */
-    private $room;
     
     /**
     * @ORM\Column(name="salary", type="decimal", precision=14, scale=2)
@@ -34,7 +29,7 @@ class Worker extends Client
     protected $workplace;
     
     /**
-    * @ORM\Column(name="comments", type="string", length=500)
+    * @ORM\Column(name="comments", type="string", length=500, nullable=true)
     */
     protected $comments;
     
@@ -44,7 +39,17 @@ class Worker extends Client
      */
     public function __construct()
     {
+        parent::__construct();
+
         $this->room = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->name="do uzupelnienia";
+        $this->surname="do uzupelnienia";        
+        $this->addressStreetName="uzupelnic";
+        $this->AddressHouseNumber="uzu";
+        $this->addressZipCode="00-000";
+        $this->pesel=0;
+        $this->telephoneNumber=0;
+        $this->bankAccountNumber=0;
     }
 
     /**

@@ -16,25 +16,19 @@ class Booking
     * @ORM\Column(type="integer")
     * @ORM\GeneratedValue(strategy="AUTO")
     */
-   protected $id;
+    protected $id;
     
-   
-   
     /**
      * @ORM\ManyToOne(targetEntity="Client", inversedBy="booking")
-     * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="booking_id", referencedColumnName="id")
      */
-     private $client;
-   
-    /**   
-     * @ORM\Column(name="clientId", type="integer") 
-     */
-    private $clientId;
+    private $client;
     
     /**
-    * @ORM\ManyToMany(targetEntity="RoomList", mappedBy="booking")
+     * @ORM\ManyToOne(targetEntity="Offer", inversedBy="booking")
+     * @ORM\JoinColumn(name="booking_id", referencedColumnName="id")
      */
-    private $list;
+    private $offer;
     
     /**
      * @ORM\Column(name="bookingDate", type="datetime")
