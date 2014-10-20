@@ -1,5 +1,4 @@
-# app/config/routing.yml
-kc_user:
+kc_hotel:
     resource: "@KCHotelBundle/Controller/"
     type:     annotation
     prefix:   /

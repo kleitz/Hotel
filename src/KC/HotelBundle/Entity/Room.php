@@ -42,12 +42,12 @@ class Room
     private $availability;
     
     /**    
-     * @ORM\Column(name="nrOfBeds", type="string", length=1) 
+     * @ORM\Column(name="nrOfBeds", type="integer", length=1) 
      */
     private $nrOfBeds;
     
     /**    
-     * @ORM\Column(name="faultInformation", type="string", length=200) 
+     * @ORM\Column(name="faultInformation", type="string", length=200, nullable=true) 
      */
     private $faultInformation;
     
