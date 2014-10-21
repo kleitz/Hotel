@@ -1,15 +1,14 @@
 {% extends '::admin_base.html.twig' %}
 
 {% block body -%}
-    <h1>Worker creation</h1>
+    <h1>Dodawanie pracownika</h1>
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_worker') }}">
-            Back to the list
+
+        <a class="button" href="{{ path('admin_worker') }}">
+            Powrót do listy
         </a>
-    </li>
-</ul>
+
+
 {% endblock %}

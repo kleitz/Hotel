@@ -1,36 +1,36 @@
 {% extends '::admin_base.html.twig' %}
 
 {% block body -%}
-    <h1>Worker list</h1>
+    <h1>Lista pracowników</h1>
 
     <table class="records_list">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Salary</th>
-                <th>Workplace</th>
-                <th>Comments</th>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Addressstreetname</th>
-                <th>Addresshousenumber</th>
-                <th>Addressapartmentnumber</th>
-                <th>Addresszipcode</th>
+                <th>Imie</th>
+                <th>Nazwisko</th>
+                <th>Wynagrodzenie</th>
+                <th>Stanowisko pracy</th>
+                <th>Komentarz</th>
+                <th>Nazwa ulicy</th>
+                <th>Numer domu</th>
+                <th>Numer mieszkania</th>
+                <th>Kod pocztowy</th>
                 <th>Pesel</th>
-                <th>Telephonenumber</th>
-                <th>Bankaccountnumber</th>
-                <th>Actions</th>
+                <th>Numer telefonu</th>
+                <th>Nr. konta bankowego</th>
+                <th>Akcje</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('admin_worker_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.surname }}</td>
                 <td>{{ entity.salary }}</td>
                 <td>{{ entity.workplace }}</td>
                 <td>{{ entity.comments }}</td>
-                <td>{{ entity.name }}</td>
-                <td>{{ entity.surname }}</td>
                 <td>{{ entity.addressStreetName }}</td>
                 <td>{{ entity.addressHouseNumber }}</td>
                 <td>{{ entity.addressApartmentNumber }}</td>
@@ -39,25 +39,19 @@
                 <td>{{ entity.telephoneNumber }}</td>
                 <td>{{ entity.bankAccountNumber }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('admin_worker_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('admin_worker_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+
+                        <a class="tiny button" href="{{ path('admin_worker_show', { 'id': entity.id }) }}">Pokaż</a>
+
+                        <a class="tiny button" href="{{ path('admin_worker_edit', { 'id': entity.id }) }}">Edytuj</a>
+
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-        <ul>
-        <li>
-            <a href="{{ path('admin_worker_new') }}">
-                Create a new entry
+            <a class="button" href="{{ path('admin_worker_new') }}">
+                Dodaj nowego pracownika
             </a>
-        </li>
-    </ul>
+        
     {% endblock %}

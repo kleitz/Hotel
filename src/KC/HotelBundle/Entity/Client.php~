@@ -6,9 +6,13 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="client")
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"client" = "Client", "worker" = "Worker"})
  */
 class Client extends BaseUser
 {
@@ -19,9 +23,8 @@ class Client extends BaseUser
      */
     protected $id;
     
-    /**
-     * @ORM\ManyToOne(targetEntity="Booking", inversedBy="client")
-     * @ORM\JoinColumn(name="booking_id", referencedColumnName="id")
+     /**
+     * @ORM\OneToMany(targetEntity="Booking", mappedBy="client")
      */
     private $booking;
     
@@ -57,7 +60,7 @@ class Client extends BaseUser
     protected $addressApartmentNumber;
     
     /**
-    * @ORM\Column(name="addressZipCode", type="string", length=5)
+    * @ORM\Column(name="addressZipCode", type="string", length=6)
     */
     protected $addressZipCode;
     
@@ -81,7 +84,6 @@ class Client extends BaseUser
     public function __construct()
     {
         parent::__construct();
-        // your own logic
     }
 
     /**
@@ -304,10 +306,10 @@ class Client extends BaseUser
     /**
      * Set addressApartmentNumber
      *
-     * @param \int $addressApartmentNumber
+     * @param \integer $addressApartmentNumber
      * @return Client
      */
-    public function setAddressApartmentNumber(\int $addressApartmentNumber)
+    public function setAddressApartmentNumber($addressApartmentNumber)
     {
         $this->addressApartmentNumber = $addressApartmentNumber;
 
@@ -317,7 +319,7 @@ class Client extends BaseUser
     /**
      * Get addressApartmentNumber
      *
-     * @return \int 
+     * @return \integer 
      */
     public function getAddressApartmentNumber()
     {

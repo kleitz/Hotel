@@ -2,14 +2,14 @@
 
 namespace KC\HotelBundle\Entity;
 
-use KC\HotelBundle\Entity\User as User;
+use KC\HotelBundle\Entity\Client as Client;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="worker")
  */
-class Worker extends User
+class Worker extends Client
 {
     /**
      * @ORM\Id
