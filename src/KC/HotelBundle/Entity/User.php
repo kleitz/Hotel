@@ -12,9 +12,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="user")
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"client" = "Client", "worker" = "Worker"})
+ * @ORM\DiscriminatorMap({"client" = "Client", "worker" = "Worker", "user" = "User"})
  */
-abstract class User extends BaseUser
+class User extends BaseUser
 {
     /**
      * @ORM\Id
