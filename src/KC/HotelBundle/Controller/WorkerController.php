@@ -92,7 +92,7 @@ class WorkerController extends Controller
     {
         $entity = new Worker();
         $form   = $this->createCreateForm($entity);
-
+        
         return array(
             'entity' => $entity,
             'form'   => $form->createView(),

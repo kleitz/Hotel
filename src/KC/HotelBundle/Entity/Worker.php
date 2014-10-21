@@ -40,16 +40,9 @@ class Worker extends Client
     public function __construct()
     {
         parent::__construct();
-
-        $this->room = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->name="do uzupelnienia";
-        $this->surname="do uzupelnienia";        
-        $this->addressStreetName="uzupelnic";
-        $this->AddressHouseNumber="uzu";
-        $this->addressZipCode="00-000";
-        $this->pesel=0;
-        $this->telephoneNumber=0;
-        $this->bankAccountNumber=0;
+        
+        //Automatyczne uaktualnianie konta pracownika
+        $this->enabled=1;
     }
 
     /**
