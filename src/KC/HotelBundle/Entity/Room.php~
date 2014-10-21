@@ -18,40 +18,28 @@ class Room
     private $id;
     
     /**
-     *
-     * @ORM\OneToMany(targetEntity="RoomList", mappedBy="room")
+     * @ORM\OneToMany(targetEntity="Offer", mappedBy="room")
      */
-    private $roomlist;
-    
-    /**
-     * @ORM\Column(name="workerId", type="integer") 
-     */
-    private $workerId;
-    
+    private $offer;
+   
     /**
      * @ORM\ManyToOne(targetEntity="Standard", inversedBy="room")
      * @ORM\JoinColumn(name="standard_id", referencedColumnName="id")
      */
     private $standard;
-    
+   
     /**
-     * @ORM\ManyToOne(targetEntity="Worker", inversedBy="room")
-     * @ORM\JoinColumn(name="worker_id", referencedColumnName="id")
+     * @ORM\Column(name="roomNumber", type="integer")
      */
-    private $worker;
+    private $roomNumber;
     
     /**    
-     * @ORM\Column(name="availability", type="string", length=1) 
-     */
-    private $availability;
-    
-    /**    
-     * @ORM\Column(name="nrOfBeds", type="string", length=1) 
+     * @ORM\Column(name="nrOfBeds", type="integer") 
      */
     private $nrOfBeds;
     
     /**    
-     * @ORM\Column(name="faultInformation", type="string", length=200) 
+     * @ORM\Column(name="faultInformation", type="string", length=200, nullable=true) 
      */
     private $faultInformation;
     
@@ -81,28 +69,6 @@ class Room
         return $this->id;
     }
 
-    /**
-     * Set workerId
-     *
-     * @param integer $workerId
-     * @return Room
-     */
-    public function setWorkerId($workerId)
-    {
-        $this->workerId = $workerId;
-
-        return $this;
-    }
-
-    /**
-     * Get workerId
-     *
-     * @return integer 
-     */
-    public function getWorkerId()
-    {
-        return $this->workerId;
-    }
 
     /**
      * Set standardId
@@ -125,29 +91,6 @@ class Room
     public function getStandardId()
     {
         return $this->standardId;
-    }
-
-    /**
-     * Set availability
-     *
-     * @param string $availability
-     * @return Room
-     */
-    public function setAvailability($availability)
-    {
-        $this->availability = $availability;
-
-        return $this;
-    }
-
-    /**
-     * Get availability
-     *
-     * @return string 
-     */
-    public function getAvailability()
-    {
-        return $this->availability;
     }
 
     /**
@@ -209,7 +152,7 @@ class Room
      * @param \KC\HotelBundle\Entity\Standard $standard
      * @return Room
      */
-    public function addStandard(\KC\UserBundle\Entity\Standard $standard)
+    public function addStandard(\KC\HotelBundle\Entity\Standard $standard)
     {
         $this->standard[] = $standard;
 
@@ -221,7 +164,7 @@ class Room
      *
      * @param \KC\HotelBundle\Entity\Standard $standard
      */
-    public function removeStandard(\KC\UserBundle\Entity\Standard $standard)
+    public function removeStandard(\KC\HotelBundle\Entity\Standard $standard)
     {
         $this->standard->removeElement($standard);
     }
@@ -242,66 +185,11 @@ class Room
      * @param \KC\HotelBundle\Entity\Standard $standard
      * @return Room
      */
-    public function setStandard(\KC\UserBundle\Entity\Standard $standard = null)
+    public function setStandard(\KC\HotelBundle\Entity\Standard $standard = null)
     {
         $this->standard = $standard;
 
         return $this;
     }
 
-    /**
-     * Set worker
-     *
-     * @param \KC\HotelBundle\Entity\Worker $worker
-     * @return Room
-     */
-    public function setWorker(\KC\UserBundle\Entity\Worker $worker = null)
-    {
-        $this->worker = $worker;
-
-        return $this;
-    }
-
-    /**
-     * Get worker
-     *
-     * @return \KC\HotelBundle\Entity\Worker 
-     */
-    public function getWorker()
-    {
-        return $this->worker;
-    }
-
-    /**
-     * Add roomlist
-     *
-     * @param \KC\HotelBundle\Entity\RoomList $roomlist
-     * @return Room
-     */
-    public function addRoomlist(\KC\HotelBundle\Entity\RoomList $roomlist)
-    {
-        $this->roomlist[] = $roomlist;
-
-        return $this;
-    }
-
-    /**
-     * Remove roomlist
-     *
-     * @param \KC\HotelBundle\Entity\RoomList $roomlist
-     */
-    public function removeRoomlist(\KC\HotelBundle\Entity\RoomList $roomlist)
-    {
-        $this->roomlist->removeElement($roomlist);
-    }
-
-    /**
-     * Get roomlist
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getRoomlist()
-    {
-        return $this->roomlist;
-    }
 }

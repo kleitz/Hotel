@@ -15,6 +15,7 @@ class RoomType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('roomNumber')
             ->add('nrOfBeds')
             ->add('faultInformation')
             ->add('standard')

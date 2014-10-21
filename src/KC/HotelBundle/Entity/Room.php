@@ -21,15 +21,20 @@ class Room
      * @ORM\OneToMany(targetEntity="Offer", mappedBy="room")
      */
     private $offer;
-    
+   
     /**
      * @ORM\ManyToOne(targetEntity="Standard", inversedBy="room")
      * @ORM\JoinColumn(name="standard_id", referencedColumnName="id")
      */
     private $standard;
+   
+    /**
+     * @ORM\Column(name="roomNumber", type="integer")
+     */
+    private $roomNumber;
     
     /**    
-     * @ORM\Column(name="nrOfBeds", type="integer", length=1) 
+     * @ORM\Column(name="nrOfBeds", type="integer") 
      */
     private $nrOfBeds;
     
@@ -187,4 +192,60 @@ class Room
         return $this;
     }
 
+
+    /**
+     * Set roomNumber
+     *
+     * @param integer $roomNumber
+     * @return Room
+     */
+    public function setRoomNumber($roomNumber)
+    {
+        $this->roomNumber = $roomNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get roomNumber
+     *
+     * @return integer 
+     */
+    public function getRoomNumber()
+    {
+        return $this->roomNumber;
+    }
+
+    /**
+     * Add offer
+     *
+     * @param \KC\HotelBundle\Entity\Offer $offer
+     * @return Room
+     */
+    public function addOffer(\KC\HotelBundle\Entity\Offer $offer)
+    {
+        $this->offer[] = $offer;
+
+        return $this;
+    }
+
+    /**
+     * Remove offer
+     *
+     * @param \KC\HotelBundle\Entity\Offer $offer
+     */
+    public function removeOffer(\KC\HotelBundle\Entity\Offer $offer)
+    {
+        $this->offer->removeElement($offer);
+    }
+
+    /**
+     * Get offer
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOffer()
+    {
+        return $this->offer;
+    }
 }

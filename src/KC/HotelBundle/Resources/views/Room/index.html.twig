@@ -1,14 +1,16 @@
 {% extends '::admin_base.html.twig' %}
 
 {% block body -%}
-    <h1>Room list</h1>
+    <h1>Lista pokoi</h1>
 
     <table class="records_list">
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Numer pokoju</th>
                 <th>Ilość łóżek</th>
                 <th>Informacje o usterkach</th>
+                <th>Standard</th>
                 <th>Akcje</th>
             </tr>
         </thead>
@@ -16,8 +18,10 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('admin_room_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.roomNumber }}</td>
                 <td>{{ entity.nrOfBeds }}</td>
                 <td>{{ entity.faultInformation }}</td>
+                <td>{{ entity.standard }}</td>
                 <td>
 
                         <a class="tiny button" href="{{ path('admin_room_show', { 'id': entity.id }) }}">Pokaż</a>
