@@ -1,14 +1,15 @@
 {% extends '::admin_base.html.twig' %}
 
 {% block body -%}
-    <h1>Edycja Pokoju</h1>
+    <h1>Edycja oferty</h1>
 
     {{ form(edit_form) }}
 
-        <a class="button" href="{{ path('admin_room') }}">
+
+        <a class="button" href="{{ path('admin_offer') }}">
             Powrót do listy
         </a>
-
+    
     {{ form(delete_form) }}
 
 {% endblock %}

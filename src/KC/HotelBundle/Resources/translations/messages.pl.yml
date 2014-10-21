@@ -8,12 +8,13 @@ Delete: Usuń
 Standard name: Nazwa standardu
 Price for bed: Cena za łóżko
 Description: Opis
+Discription: Opis
 Nr of beds: Ilość łóżek
 Fault information: Informacje o usterkach
 Salary: Wynagrodzenie
 Workplace: Stanowisko pracy
 Comments: Komentarz
-Name: Imie
+Name: Imie/Nazwa
 Surname: Nazwisko
 Address street name: Nazwa ulicy
 Address house number: Numer domu
@@ -21,3 +22,5 @@ Address apartment number: Numer mieszkania
 Address zip code: Kod pocztowy
 Telephone number: Numer telefonu
 Bank account number: Nr. konta bankowego
+Room: Pokój
+Price: Cena

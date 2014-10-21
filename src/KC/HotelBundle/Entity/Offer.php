@@ -134,4 +134,67 @@ class Offer
     {
         return $this->price;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->booking = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add booking
+     *
+     * @param \KC\HotelBundle\Entity\Booking $booking
+     * @return Offer
+     */
+    public function addBooking(\KC\HotelBundle\Entity\Booking $booking)
+    {
+        $this->booking[] = $booking;
+
+        return $this;
+    }
+
+    /**
+     * Remove booking
+     *
+     * @param \KC\HotelBundle\Entity\Booking $booking
+     */
+    public function removeBooking(\KC\HotelBundle\Entity\Booking $booking)
+    {
+        $this->booking->removeElement($booking);
+    }
+
+    /**
+     * Get booking
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBooking()
+    {
+        return $this->booking;
+    }
+
+    /**
+     * Set room
+     *
+     * @param \KC\HotelBundle\Entity\Room $room
+     * @return Offer
+     */
+    public function setRoom(\KC\HotelBundle\Entity\Room $room = null)
+    {
+        $this->room = $room;
+
+        return $this;
+    }
+
+    /**
+     * Get room
+     *
+     * @return \KC\HotelBundle\Entity\Room 
+     */
+    public function getRoom()
+    {
+        return $this->room;
+    }
 }

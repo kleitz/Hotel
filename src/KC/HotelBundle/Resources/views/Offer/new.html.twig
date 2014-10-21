@@ -1,0 +1,13 @@
+{% extends '::admin_base.html.twig' %}
+
+{% block body -%}
+    <h1>Tworzenie oferty</h1>
+
+    {{ form(form)}}
+
+
+        <a class="button" href="{{ path('admin_offer') }}">
+            Powrót do listy
+        </a>
+
+{% endblock %}
