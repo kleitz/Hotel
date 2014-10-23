@@ -50,6 +50,14 @@ class OfferController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            
+            //seting price for offer
+            if ($entity->getPrice()==NULL)
+            {
+                $price = $entity->getRoom()->getPrice();
+                $entity->setPrice($price);
+            }
+
             $em->persist($entity);
             $em->flush();
 

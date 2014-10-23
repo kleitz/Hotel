@@ -51,7 +51,7 @@ class Offer
     /**
      * @var string
      *
-     * @ORM\Column(name="price", type="decimal")
+     * @ORM\Column(name="price", type="decimal", precision=14, scale=2, nullable=true)
      */
     private $price;
 

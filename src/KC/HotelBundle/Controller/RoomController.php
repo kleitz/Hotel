@@ -51,6 +51,7 @@ class RoomController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             
+            //Setting price for room
             $price = $entity->getStandard()->getPriceForBed() * ($entity->getNrOfBeds());
             $entity->setPrice($price);
             
