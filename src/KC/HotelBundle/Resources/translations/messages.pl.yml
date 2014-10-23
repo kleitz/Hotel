@@ -14,7 +14,7 @@ Fault information: Informacje o usterkach
 Salary: Wynagrodzenie
 Workplace: Stanowisko pracy
 Comments: Komentarz
-Name: Imie/Nazwa
+Name: Imie
 Surname: Nazwisko
 Address street name: Nazwa ulicy
 Address house number: Numer domu
@@ -24,3 +24,4 @@ Telephone number: Numer telefonu
 Bank account number: Nr. konta bankowego
 Room: Pokój
 Price: Cena
+NameOffer: Nazwa

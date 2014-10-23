@@ -123,4 +123,34 @@ class Worker extends Client
     {
         return $this->comments;
     }
+    
+    
+    
+    public function getShortCommentsContent($wordsLenght = 30)  
+    {
+        $content = $this->comments;
+
+        $words = explode(" ", $content);
+
+        $quantity = count($words);
+        
+        $result = "";
+
+        if($quantity>$wordsLenght)
+        {
+
+            for ($i=0; $i < $wordsLenght; $i++) { 
+                $result .= $words[$i];
+                if ($i!=$wordsLenght-1) {
+                    $result .= " ";
+                }
+            }
+            $result .= "...";
+        }
+        else
+        {
+            $result = $content;
+        }
+        return $result;
+    }
 }
