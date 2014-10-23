@@ -313,4 +313,40 @@ class Booking
     {
         return $this->list;
     }
+
+    /**
+     * Set client
+     *
+     * @param \KC\HotelBundle\Entity\Client $client
+     * @return Booking
+     */
+    public function setClient(\KC\HotelBundle\Entity\Client $client = null)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    /**
+     * Set offer
+     *
+     * @param \KC\HotelBundle\Entity\Offer $offer
+     * @return Booking
+     */
+    public function setOffer(\KC\HotelBundle\Entity\Offer $offer = null)
+    {
+        $this->offer = $offer;
+
+        return $this;
+    }
+
+    /**
+     * Get offer
+     *
+     * @return \KC\HotelBundle\Entity\Offer 
+     */
+    public function getOffer()
+    {
+        return $this->offer;
+    }
 }

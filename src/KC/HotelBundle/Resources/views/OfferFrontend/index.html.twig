@@ -1,0 +1,32 @@
+{% extends '::frontend_base.html.twig' %}
+
+{% block body -%}
+    <h1>Lista ofert</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nazwa</th>
+                <th>Opis</th>
+                <th>Cena</th>
+                <th>Pokaz szczegoly</th>
+                <th>Zarezerwuj</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('admin_offer_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.shortDescriptionContent(10) }}</td>
+                <td>{{ entity.price }}</td>
+                <td><a class="tiny button" href="{{ path('offer_show', { 'id': entity.id }) }}">Pokaz</a></td>
+                <td><a href="{{ path('offer_booking', { 'id': entity.id }) }}">Rezerwuj</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    {% endblock %}

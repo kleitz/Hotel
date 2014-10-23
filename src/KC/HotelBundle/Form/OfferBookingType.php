@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class OfferType extends AbstractType
+class OfferBookingType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,12 +15,13 @@ class OfferType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', null, array(
-                "label"=>"NameOffer"
-            ))
-            ->add('description')
+            ->add('bookingDate')
+            ->add('checkInDate')
+            ->add('checkOutDate')
             ->add('price')
-            ->add('room')
+            ->add('status')
+            ->add('client')
+            ->add('offer')
         ;
     }
     
@@ -30,7 +31,7 @@ class OfferType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'KC\HotelBundle\Entity\Offer'
+            'data_class' => 'KC\HotelBundle\Entity\Booking'
         ));
     }
 
@@ -39,6 +40,7 @@ class OfferType extends AbstractType
      */
     public function getName()
     {
-        return 'kc_hotelbundle_offer';
+        return 'kc_hotelbundle_offer_booking';
     }
 }
+

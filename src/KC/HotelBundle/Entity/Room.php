@@ -49,9 +49,10 @@ class Room
     private $faultInformation;
     
     public function __toString() {
-        $myroomNumber= (string)$this->roomNumber;
+     $myroomNumber= (string)$this->roomNumber;
+     
      return $myroomNumber;
-}
+    }
    
     
     /**

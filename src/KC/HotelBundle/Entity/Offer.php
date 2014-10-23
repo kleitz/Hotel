@@ -44,9 +44,9 @@ class Offer
     /**
      * @var string
      *
-     * @ORM\Column(name="discription", type="string", length=500)
+     * @ORM\Column(name="description", type="string", length=500)
      */
-    private $discription;
+    private $description;
 
     /**
      * @var string
@@ -55,6 +55,13 @@ class Offer
      */
     private $price;
 
+    
+    public function __toString() {
+    
+    $myName= $this->name;
+     
+     return $myName;
+    }
 
     /**
      * Get id
@@ -90,26 +97,26 @@ class Offer
     }
 
     /**
-     * Set discription
+     * Set description
      *
-     * @param string $discription
+     * @param string $description
      * @return Offer
      */
-    public function setDiscription($discription)
+    public function setDescription($description)
     {
-        $this->discription = $discription;
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * Get discription
+     * Get description
      *
      * @return string 
      */
-    public function getDiscription()
+    public function getDescription()
     {
-        return $this->discription;
+        return $this->description;
     }
 
     /**
@@ -202,7 +209,7 @@ class Offer
     
     public function getShortDescriptionContent($wordsLenght = 30)  
     {
-        $content = $this->discription;
+        $content = $this->description;
 
         $words = explode(" ", $content);
 
