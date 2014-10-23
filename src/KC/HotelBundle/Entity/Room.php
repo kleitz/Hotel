@@ -38,6 +38,11 @@ class Room
      */
     private $nrOfBeds;
     
+    /**
+     * @ORM\Column(name="price", type="decimal", precision=14, scale=2)
+     */
+    private $price;
+    
     /**    
      * @ORM\Column(name="faultInformation", type="string", length=200, nullable=true) 
      */
@@ -281,4 +286,27 @@ class Room
         return $result;
     }
     
+
+    /**
+     * Set price
+     *
+     * @param string $price
+     * @return Room
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     * 
+     * @return string 
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
 }

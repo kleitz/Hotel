@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table(name="room")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Room
 {
@@ -38,14 +39,22 @@ class Room
      */
     private $nrOfBeds;
     
+    /**
+     * @ORM\Column(name="price", type="decimal", precision=14, scale=2)
+     */
+    private $price;
+    
     /**    
      * @ORM\Column(name="faultInformation", type="string", length=200, nullable=true) 
      */
     private $faultInformation;
     
+    public function __toString() {
+        $myroomNumber= (string)$this->roomNumber;
+     return $myroomNumber;
+}
+   
     
-    
-
     /**
      * Set id
      *
@@ -247,5 +256,73 @@ class Room
     public function getOffer()
     {
         return $this->offer;
+    }
+    
+    
+    public function getShortFaultContent($wordsLenght = 30)  
+    {
+        $content = $this->faultInformation;
+
+        $words = explode(" ", $content);
+
+        $quantity = count($words);
+        
+        $result = "";
+
+        if($quantity>$wordsLenght)
+        {
+
+            for ($i=0; $i < $wordsLenght; $i++) { 
+                $result .= $words[$i];
+                if ($i!=$wordsLenght-1) {
+                    $result .= " ";
+                }
+            }
+            $result .= "...";
+        }
+        else
+        {
+            $result = $content;
+        }
+        return $result;
+    }
+    
+
+    /**
+     * Set price
+     *
+     * @param string $price
+     * @return Room
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     * 
+     * @param \KC\HotelBundle\Entity\Standard $standard
+     * @return string 
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+    
+    
+    /**
+     * Prepersisting price
+     * 
+     * @ORM\PrePersist
+     * @param \KC\HotelBundle\Entity\Standard $standard
+     */
+    public function setPricePrePersist($standard)
+    {
+        $price = $standard->getPriceForBed() * ($this->nrOfBeds);
+
+        return $price;
     }
 }

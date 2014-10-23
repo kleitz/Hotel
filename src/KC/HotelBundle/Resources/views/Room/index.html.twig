@@ -11,6 +11,7 @@
                 <th>Ilość łóżek</th>
                 <th>Informacje o usterkach</th>
                 <th>Standard</th>
+                <th>Cena</th>
                 <th>Akcje</th>
             </tr>
         </thead>
@@ -22,6 +23,7 @@
                 <td>{{ entity.nrOfBeds }}</td>
                 <td>{{ entity.shortFaultContent(5) }}</td>
                 <td>{{ entity.standard }}</td>
+                <td>{{ entity.price }}</td>
                 <td>
 
                         <a class="tiny button" href="{{ path('admin_room_show', { 'id': entity.id }) }}">Pokaż</a>
