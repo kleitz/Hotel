@@ -23,8 +23,8 @@
             <tr>
                 <td><a href="{{ path('admin_booking_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{% if entity.bookingDate %}{{ entity.bookingDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if entity.checkInDate %}{{ entity.checkInDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if entity.checkOutDate %}{{ entity.checkOutDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.checkInDate %}{{ entity.checkInDate|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if entity.checkOutDate %}{{ entity.checkOutDate|date('Y-m-d') }}{% endif %}</td>
                 <td>{{ entity.price }}</td>
                 <td>{{ entity.status }}</td>
                 <td>{{ entity.room  }}</td>
