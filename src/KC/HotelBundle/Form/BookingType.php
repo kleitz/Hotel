@@ -15,9 +15,26 @@ class BookingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('bookingDate')
-            ->add('checkInDate')
-            ->add('checkOutDate')
+            ->add('bookingDate', null, array(
+                'widget' => 'single_text',
+                'attr'=> array(
+                    'class' => 'dtp',      
+                )
+            ))
+            ->add('checkInDate', null, array(
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+                'attr'=> array(
+                    'class' => 'dp',      
+                )
+            ))
+            ->add('checkOutDate', null, array(
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+                'attr'=> array(
+                    'class' => 'dp',      
+                )
+            ))
             ->add('price')
             ->add('status')
             ->add('client', 'entity', array(

@@ -4,7 +4,13 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Hotel Menager{% endblock %}</title>
         {% block stylesheets %}
+
+            {#Foundation#}
             <link rel="stylesheet" href="{{ asset('css/foundation.css') }}"/>
+            
+            {#DatetimePicker#}
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.datetimepicker.css') }}"/> 
+            
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -20,12 +26,26 @@
         
         
         {% block javascripts %}
+            
             {# Foundation #}
             <script src="{{ asset('js/vendor/jquery.js') }}"></script>
             <script src="{{ asset('js/foundation.min.js') }}"></script>
             <script>
-              $(document).foundation();
+                $(document).foundation();
             </script>
+            
+            {#DatetimePicker#}
+            <script src="{{ asset('js/datetimepicker/jquery.js') }}"></script> 
+            <script src="{{ asset('js/datetimepicker/jquery.datetimepicker.js') }}"></script>
+            <script>
+                jQuery('.dtp').datetimepicker({lang:'pl'});
+                jQuery('.dp').datetimepicker({
+                lang:'pl',
+                timepicker:false,
+                format:'Y-m-d'
+               });
+            </script>
+            
         {% endblock %}
     </body>
 </html>
