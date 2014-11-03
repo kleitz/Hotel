@@ -1,7 +1,7 @@
-{% extends '::base.html.twig' %}
+{% extends '::admin_base.html.twig' %}
 
 {% block body -%}
-    <h1>Booking</h1>
+    <h1>Rezerwacja {{ entity.client }}`a</h1>
 
     <table class="record_properties">
         <tbody>
@@ -10,19 +10,19 @@
                 <td>{{ entity.id }}</td>
             </tr>
             <tr>
-                <th>Bookingdate</th>
+                <th>Data złożenia rezerwacji</th>
                 <td>{{ entity.bookingDate|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Checkindate</th>
+                <th>Data zameldowana</th>
                 <td>{{ entity.checkInDate|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Checkoutdate</th>
+                <th>Data wymeldowania</th>
                 <td>{{ entity.checkOutDate|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Price</th>
+                <th>Cena</th>
                 <td>{{ entity.price }}</td>
             </tr>
             <tr>
@@ -32,17 +32,12 @@
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_booking') }}">
-            Back to the list
+        <a class="button" href="{{ path('admin_booking') }}">
+            Powrót do rezerwacji
         </a>
-    </li>
-    <li>
-        <a href="{{ path('admin_booking_edit', { 'id': entity.id }) }}">
-            Edit
+        <a class="button" href="{{ path('admin_booking_edit', { 'id': entity.id }) }}">
+            Edytuj
         </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    {{ form(delete_form) }}
+
 {% endblock %}

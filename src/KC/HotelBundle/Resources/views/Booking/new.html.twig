@@ -1,15 +1,13 @@
-{% extends '::base.html.twig' %}
+{% extends '::admin_base.html.twig' %}
 
 {% block body -%}
-    <h1>Booking creation</h1>
+    <h1>Tworzenie rezerwacji</h1>
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_booking') }}">
-            Back to the list
+
+        <a class="button" href="{{ path('admin_booking') }}">
+            Powrót do rezerwacji
         </a>
-    </li>
-</ul>
+
 {% endblock %}

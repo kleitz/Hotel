@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use KC\HotelBundle\Entity\Offer;
+use KC\HotelBundle\Entity\Booking;
 use KC\HotelBundle\Form\OfferType;
 
 /**

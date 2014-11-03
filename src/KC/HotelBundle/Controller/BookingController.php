@@ -48,7 +48,7 @@ class BookingController extends Controller
         $entity = new Booking();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
-
+        
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
@@ -161,6 +161,7 @@ class BookingController extends Controller
     */
     private function createEditForm(Booking $entity)
     {
+        
         $form = $this->createForm(new BookingType(), $entity, array(
             'action' => $this->generateUrl('admin_booking_update', array('id' => $entity->getId())),
             'method' => 'PUT',

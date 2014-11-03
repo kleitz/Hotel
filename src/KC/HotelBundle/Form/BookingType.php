@@ -20,7 +20,10 @@ class BookingType extends AbstractType
             ->add('checkOutDate')
             ->add('price')
             ->add('status')
-            ->add('client')
+            ->add('client', 'entity', array(
+                    'class' => 'KCHotelBundle:Client',
+                    'property' => 'surname',
+            ))
             ->add('offer')
         ;
     }

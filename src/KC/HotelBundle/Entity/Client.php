@@ -85,6 +85,10 @@ class Client extends BaseUser
     {
         parent::__construct();
     }
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     /**
      * Get id

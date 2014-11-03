@@ -20,13 +20,13 @@ class Booking
     
     /**
      * @ORM\ManyToOne(targetEntity="Client", inversedBy="booking")
-     * @ORM\JoinColumn(name="booking_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
      */
     private $client;
     
     /**
      * @ORM\ManyToOne(targetEntity="Offer", inversedBy="booking")
-     * @ORM\JoinColumn(name="booking_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="offer_id", referencedColumnName="id")
      */
     private $offer;
     
