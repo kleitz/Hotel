@@ -2,6 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/var/www/html/Hotel/src/KC/HotelBundle/Resources/views/Booking/edit.html.twig</file>
+            <file>file:/var/www/html/Hotel/src/KC/HotelBundle/Controller/BookingController.php</file>
+            <file>file:/var/www/html/Hotel/src/KC/HotelBundle/Resources/views/Booking/show.html.twig</file>
+            <file>file:/var/www/html/Hotel/src/KC/HotelBundle/Entity/Client.php</file>
+            <file>file:/var/www/html/Hotel/src/KC/HotelBundle/Resources/views/Booking/index.html.twig</file>
+            <file>file:/var/www/html/Hotel/src/KC/HotelBundle/Entity/Standard.php</file>
+            <file>file:/var/www/html/Hotel/src/KC/HotelBundle/Entity/Booking.php</file>
+            <file>file:/var/www/html/Hotel/src/KC/HotelBundle/Entity/Offer.php</file>
+            <file>file:/var/www/html/Hotel/src/KC/HotelBundle/Form/BookingType.php</file>
+            <file>file:/var/www/html/Hotel/src/KC/HotelBundle/Entity/Room.php</file>
+        </group>
     </open-files>
 </project-private>

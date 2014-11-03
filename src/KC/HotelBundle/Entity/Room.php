@@ -21,6 +21,11 @@ class Room
      * @ORM\OneToMany(targetEntity="Offer", mappedBy="room")
      */
     private $offer;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Booking", mappedBy="room")
+     */
+    private $booking;
    
     /**
      * @ORM\ManyToOne(targetEntity="Standard", inversedBy="room")

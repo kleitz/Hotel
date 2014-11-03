@@ -12,8 +12,9 @@
                 <th>Data wymeldowania</th>
                 <th>Cena</th>
                 <th>Status</th>
-                <th>Pracownik</th>
-
+                <th>Pokoj</th>
+                <th>Klient</th>
+                <th>Oferta</th>
                 <th>Akcje</th>
             </tr>
         </thead>
@@ -26,8 +27,15 @@
                 <td>{% if entity.checkOutDate %}{{ entity.checkOutDate|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ entity.price }}</td>
                 <td>{{ entity.status }}</td>
+                <td>{{ entity.room  }}</td>
                 <td>{{ entity.client }}</td>
-
+                <td>
+                    {% if entity.offer %}
+                        {{ entity.offer }}
+                    {% else %}
+                         Nie dotyczy
+                    {% endif %}
+                </td>
                 <td>
 
                         <a class="tiny button" href="{{ path('admin_booking_show', { 'id': entity.id }) }}">show</a>

@@ -20,15 +20,22 @@ class Booking
     
     /**
      * @ORM\ManyToOne(targetEntity="Client", inversedBy="booking")
-     * @ORM\JoinColumn(name="booking_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
      */
     private $client;
     
     /**
      * @ORM\ManyToOne(targetEntity="Offer", inversedBy="booking")
-     * @ORM\JoinColumn(name="booking_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="offer_id", referencedColumnName="id")
      */
     private $offer;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Room", inversedBy="booking")
+     * @ORM\JoinColumn(name="room_id", referencedColumnName="id")
+     */
+    private $room;
+    
     
     /**
      * @ORM\Column(name="bookingDate", type="datetime")
@@ -312,5 +319,41 @@ class Booking
     public function getList()
     {
         return $this->list;
+    }
+
+    /**
+     * Set client
+     *
+     * @param \KC\HotelBundle\Entity\Client $client
+     * @return Booking
+     */
+    public function setClient(\KC\HotelBundle\Entity\Client $client = null)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    /**
+     * Set offer
+     *
+     * @param \KC\HotelBundle\Entity\Offer $offer
+     * @return Booking
+     */
+    public function setOffer(\KC\HotelBundle\Entity\Offer $offer = null)
+    {
+        $this->offer = $offer;
+
+        return $this;
+    }
+
+    /**
+     * Get offer
+     *
+     * @return \KC\HotelBundle\Entity\Offer 
+     */
+    public function getOffer()
+    {
+        return $this->offer;
     }
 }

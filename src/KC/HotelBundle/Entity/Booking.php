@@ -31,17 +31,24 @@ class Booking
     private $offer;
     
     /**
+     * @ORM\ManyToOne(targetEntity="Room", inversedBy="booking")
+     * @ORM\JoinColumn(name="room_id", referencedColumnName="id")
+     */
+    private $room;
+    
+    
+    /**
      * @ORM\Column(name="bookingDate", type="datetime")
      */
     private $bookingDate;
     
     /**
-     * @ORM\Column(name="$checkInDate", type="datetime")
+     * @ORM\Column(name="$checkInDate", type="date")
      */
     private $checkInDate;
     
     /**
-     * @ORM\Column(name="$checkOutDate", type="datetime")
+     * @ORM\Column(name="$checkOutDate", type="date")
      */
     private $checkOutDate;
     
@@ -348,5 +355,28 @@ class Booking
     public function getOffer()
     {
         return $this->offer;
+    }
+
+    /**
+     * Set room
+     *
+     * @param \KC\HotelBundle\Entity\Room $room
+     * @return Booking
+     */
+    public function setRoom(\KC\HotelBundle\Entity\Room $room = null)
+    {
+        $this->room = $room;
+
+        return $this;
+    }
+
+    /**
+     * Get room
+     *
+     * @return \KC\HotelBundle\Entity\Room 
+     */
+    public function getRoom()
+    {
+        return $this->room;
     }
 }
