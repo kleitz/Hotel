@@ -2,14 +2,20 @@
 
 {% block body %}
 
-    
+    <h1>Zajetosc pokoju</h1>
+
+
 {% for entity in availability %}
         <ul> 
             <h3>
-            <li>{{ entity.CheckIn |date('Y-m-d') }}</li>
-            {{ entity.CheckOut|date('Y-m-d') }}
+            <li> Od {{ entity.CheckIn |date('Y-m-d') }}</li>
+                Do {{ entity.CheckOut|date('Y-m-d') }}
             </h3>
         </ul>
 {% endfor %}
+
+<h1>Zarezerwuj </h1>
+
+    {{ form(form) }}
         
 {% endblock %}

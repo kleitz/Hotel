@@ -8,7 +8,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use KC\HotelBundle\Entity\Booking;
-use KC\HotelBundle\Form\BookingType;
 
 /**
  * Booking controller.
@@ -54,25 +53,25 @@ class BookingFrontendController extends Controller
             throw $this->createNotFoundException('Unable to find Booking entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+        
 
         return array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
+            
         );
-    }    
+    }
     
     
     /**
-    * Returns array with room availability based on room number
+    * Returns array with room availability based on room number and generates a form 
     *
     * @param Room $id
     * 
-    * @Method("GET")
+    * @Method({"GET", "POST"})
     * @Template()  
     * @Route("/{id}/availability", name="booking_room_availability")
     */
-    public function checkAvailabilityAction($id)
+    public function checkAvailabilityAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -93,11 +92,61 @@ class BookingFrontendController extends Controller
             );
         }
         
+        $booking = new Booking();
+        
+        //ustanawianie danych ktore sie maja wpisac automatycznie
+        $booking->setBookingDate(new \DateTime());
+
+        //tworzenie formularza
+        $form = $this->createFormBuilder($booking)
+            ->add('checkInDate', null, array(
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+                'attr'=> array(
+                    'class' => 'dp',      
+                )
+            ))
+            ->add('checkOutDate', null, array(
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+                'attr'=> array(
+                    'class' => 'dp',      
+                )
+            ))
+            ->add('save', 'submit', array('label' => 'Rezerwuj'))
+            ->getForm();
+        
+        if($request->isMethod('POST'))
+        {
+            $form->handleRequest($request);
+//            var_dump($booking);
+//            die;
+            
+        return $this->redirect($this->generateUrl('booking_form_availability'));
+        }
+        
         
         return array(
             'availability'  =>  $results,
+            'form' =>$form->createView(),
         );
+        
     }
         
+    /**
+    * Returns array with room availability based on room number
+    *
+    * @param Room $id
+    * 
+    * @Method("GET")
+    * @Template()  
+    * @Route("/availability/form", name="booking_form_availability")
+    */
+    public function checkBookingAction()
+    {
+        echo 'chuj';
+        
+    }
+    
     
 }
