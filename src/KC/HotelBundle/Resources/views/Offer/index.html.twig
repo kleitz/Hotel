@@ -10,6 +10,7 @@
                 <th>Nazwa</th>
                 <th>Opis</th>
                 <th>Cena</th>
+                <th>Numer pokoju</th>
                 <th>Akcje</th>
             </tr>
         </thead>
@@ -20,6 +21,7 @@
                 <td>{{ entity.name }}</td>
                 <td>{{ entity.shortDescriptionContent(10) }}</td>
                 <td>{{ entity.price }}</td>
+                <td>{{ entity.room }}</td>
                 <td>
 
                         <a class="tiny button" href="{{ path('admin_offer_show', { 'id': entity.id }) }}">show</a>

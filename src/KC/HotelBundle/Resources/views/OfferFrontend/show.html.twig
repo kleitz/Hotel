@@ -1,7 +1,7 @@
 {% extends '::frontend_base.html.twig' %}
 
 {% block body -%}
-    <h1> {{ entity.name }} </h1>
+    <h1>Oferta {{ entity.name }} </h1>
 
     <table class="record_properties">
         <tbody>
@@ -21,11 +21,13 @@
                 <th>Cena</th>
                 <td>{{ entity.price }}</td>
             </tr>
-            <tr>
-                <th>Rezerwacja</th>
-                <td><a href="{{ path('offer_booking', { 'id': entity.id }) }}">Rezerwuj</a></td>
-            </tr>
         </tbody>
     </table>
+
+
+        <a class="button" href="{{ path('offer') }}">
+            Powrót do listy ofert
+        </a>
+
 
 {% endblock %}

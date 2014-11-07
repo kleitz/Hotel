@@ -1,0 +1,28 @@
+{% extends '::frontend_base.html.twig' %}
+
+{% block body -%}
+    <h1>Lista pokoi</h1>
+
+<div class="row">
+    <div class="small-3 columns">
+        
+                <img src="{{ asset('img/pokoj.jpg') }}"/>
+        
+    </div>
+  <div class="small-9 columns">
+    {% for entity in entities %}
+        <ul class="pricing-table"> 
+            <li class="title">Pokoj nr {{ entity.roomNumber }}</li> 
+            <li class="price">{{ entity.price }} za lozko</li> 
+            <li class="description">{{ entity.standard }}</li> 
+            <li class="bullet-item">Ilosc lozek: {{ entity.nrOfBeds }} </li> 
+            <li class="cta-button">
+            <a class="button" href="{{ path('booking_room_availability', { 'id': entity.id }) }}">Sprawdz dostepnosc</a></li> 
+        </ul>
+    {% endfor %}
+        
+  </div>
+</div>
+             
+        
+{% endblock %}

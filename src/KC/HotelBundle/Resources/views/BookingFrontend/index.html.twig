@@ -1,4 +1,4 @@
-{% extends '::admin_base.html.twig' %}
+{% extends '::frontend_base.html.twig' %}
 
 {% block body -%}
     <h1>Rezerwacje</h1>
@@ -39,8 +39,7 @@
                 <td>
 
                         <a class="tiny button" href="{{ path('admin_booking_show', { 'id': entity.id }) }}">Pokaz</a>
-                    
-                        <a class="tiny button" href="{{ path('admin_booking_edit', { 'id': entity.id }) }}">Edytuj</a>
+                   
                     
                 </td>
             </tr>
@@ -48,9 +47,5 @@
         </tbody>
     </table>
 
-            <a class="button" href="{{ path('admin_booking_new') }}">
-                Stwórz nowa rezerwacje
-            </a>
-            
             
 {% endblock %}

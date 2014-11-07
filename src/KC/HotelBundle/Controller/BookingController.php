@@ -171,6 +171,7 @@ class BookingController extends Controller
 
         return $form;
     }
+    
     /**
      * Edits an existing Booking entity.
      *
@@ -203,7 +204,9 @@ class BookingController extends Controller
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
+        
     }
+    
     /**
      * Deletes a Booking entity.
      *
@@ -245,5 +248,5 @@ class BookingController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
-    }
+    }    
 }

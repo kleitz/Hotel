@@ -1,0 +1,15 @@
+{% extends '::frontend_base.html.twig' %}
+
+{% block body %}
+
+    
+{% for entity in availability %}
+        <ul> 
+            <h3>
+            <li>{{ entity.CheckIn |date('Y-m-d') }}</li>
+            {{ entity.CheckOut|date('Y-m-d') }}
+            </h3>
+        </ul>
+{% endfor %}
+        
+{% endblock %}
