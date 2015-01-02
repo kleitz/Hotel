@@ -21,7 +21,13 @@
                 <td><a href="{{ path('admin_room_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.roomNumber }}</td>
                 <td>{{ entity.nrOfBeds }}</td>
-                <td>{{ entity.shortFaultContent(5) }}</td>
+                <td>
+                {% if entity.faultInformation %}
+                    {{ entity.shortFaultContent(5) }}
+                {% else %}
+                    Brak
+                {% endif %}
+                </td>
                 <td>{{ entity.standard }}</td>
                 <td>{{ entity.price }}</td>
                 <td>
